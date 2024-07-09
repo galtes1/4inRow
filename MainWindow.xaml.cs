@@ -41,7 +41,7 @@ namespace _4inRow
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            return;
         }
     }
 }
