@@ -71,7 +71,7 @@
             <!-- Labels Grid -->
             <Grid Grid.Row="1" Grid.Column="0" x:Name="LabelsGrid">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
+                    <RowDefinition x:Name="a"/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -79,7 +79,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
+                    <ColumnDefinition x:Name="one"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>

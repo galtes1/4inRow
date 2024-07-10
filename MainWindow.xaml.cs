@@ -10,6 +10,10 @@ namespace _4inRow
     public partial class MainWindow : Window
     {
         private Border[,] Borders = new Border[6, 7];
+        private bool[,] isFilled = new bool[6, 7]; // To track if a cell is filled
+        private SolidColorBrush playerOne = new SolidColorBrush(Colors.Green);
+        private SolidColorBrush playerTwo = new SolidColorBrush(Colors.BlueViolet);
+        private bool isPlayerOneTurn = true; // Track the current player
 
 
         public MainWindow()
@@ -30,6 +34,8 @@ namespace _4inRow
                         Width = 50,
                         Height = 50,
                         CornerRadius = new CornerRadius(30),
+
+
                     };
                     Borders[row, col] = Border;
                     LabelsGrid.Children.Add(Border);
@@ -41,8 +47,20 @@ namespace _4inRow
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            return;
-            // one more
+            Button clickedButton = (Button)sender;
+            int column = Grid.GetColumn(clickedButton);
+
+            // Find the most bottom empty border in the clicked column
+            for (int row = 5; row >= 0; row--)
+            {
+                if (!isFilled[row, column])
+                {
+                    Borders[row, column].Background = isPlayerOneTurn ? playerOne : playerTwo;
+                    isFilled[row, column] = true;
+                    isPlayerOneTurn = !isPlayerOneTurn;
+                    break;
+                }
+            }
         }
     }
 }
